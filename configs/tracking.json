@@ -1,0 +1,72 @@
+{
+  "preprocess": {
+    "width": 640,
+    "height": 360,
+    "blur_size": [5, 5],
+    "roi": null
+  },
+  "compensation": {
+    "mode": "identity",
+    "max_features": 800,
+    "ratio_test": 0.75,
+    "min_matches": 20,
+    "min_inlier_ratio": 0.35,
+    "max_reprojection_error": 3.0,
+    "min_overlap_ratio": 0.70,
+    "edge_margin": 12,
+    "exclude_padding": 20,
+    "allow_identity_fallback": true
+  },
+  "detector": {
+    "diff_thresh": 25,
+    "min_area_ratio": 0.002,
+    "min_area": 150,
+    "max_bbox_ratio": 0.35,
+    "min_fill": 0.12,
+    "min_aspect": 0.1,
+    "max_aspect": 4.0,
+    "open_kernel": [3, 3],
+    "close_kernel": [9, 5],
+    "dilate_iterations": 1
+  },
+  "selector": {
+    "association_gate": 120.0,
+    "area_ratio_min": 0.25,
+    "area_ratio_max": 4.0,
+    "distance_weight": 0.65,
+    "area_weight": 0.20,
+    "motion_weight": 0.15
+  },
+  "tracker": {
+    "max_misses": 12,
+    "max_prediction_seconds": 0.8,
+    "prediction_horizon": 0.18,
+    "process_noise": 3.0,
+    "measurement_noise": 6.0,
+    "initial_covariance": 100.0,
+    "bbox_smoothing": 0.25
+  },
+  "controller": {
+    "deadband_x_ratio": 0.08,
+    "deadband_y_ratio": 0.10,
+    "pan_gain": 35.0,
+    "tilt_gain": 35.0,
+    "minimum_speed": 3,
+    "maximum_speed": 20,
+    "command_ttl": 0.30,
+    "allow_prediction_seconds": 0.30
+  },
+  "snapshot": {
+    "enabled": true,
+    "center_x_ratio": 0.12,
+    "center_y_ratio": 0.15,
+    "stable_frames": 5,
+    "min_sharpness": 80.0,
+    "max_control_speed": 3
+  },
+  "output": {
+    "root": "outputs",
+    "save_video": true,
+    "save_mask": false
+  }
+}

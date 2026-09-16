@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
+"""海康威视云台控制模块。"""
 
-"""Top-level package for hikvision"""
-
-__author__ = """Finbarr Brady"""
-__email__ = 'fbradyirl@github.io'
-__version__ = '2.0.4'
+__version__ = "0.1.0"

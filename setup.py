@@ -1,41 +1,27 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+"""项目的 Python 打包配置。"""
 
-"""The setup script."""
-from setuptools import setup, Extension, find_packages
+from pathlib import Path
 
-with open('README.md') as readme_file:
-    readme = readme_file.read()
+from setuptools import find_packages, setup
 
-requirements = ['requests>=2.21.0']
 
-setup_requirements = [ ]
+PROJECT_ROOT = Path(__file__).parent
 
-test_requirements = [ ]
 
 setup(
-    author="Finbarr Brady",
-    author_email='fbradyirl@github.io',
-    classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache Software License',
-        'Natural Language :: English',
-        'Programming Language :: Python :: 3.7',
-    ],
-    description='Provides a python interface to interact with a hikvision camera',
-    install_requires=requirements,
-    license='MIT',
-    long_description=readme,
-    include_package_data=True,
+    name="motion-detect-ptz",
+    version="0.1.0",
+    description="用于运动目标跟踪项目的海康威视云台控制模块",
+    long_description=(PROJECT_ROOT / "README.md").read_text(encoding="utf-8"),
     long_description_content_type="text/markdown",
-    keywords='hikvision camera python cgi interface',
-    name='hikvision',
-    packages=['hikvision'],
-    setup_requires=setup_requirements,
-    test_suite='tests',
-    tests_require=test_requirements,
-    url='https://github.com/fbradyirl/hikvision',
-    version='2.0.4',
+    packages=find_packages(),
+    install_requires=[
+        "requests>=2.21.0,<3",
+        "numpy==1.21.6",
+        "opencv-python==4.8.1.78",
+        "matplotlib==3.5.3",
+    ],
+    python_requires=">=3.7",
+    license="MIT",
     zip_safe=False,
 )
